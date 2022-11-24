@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 7562ajj的博客">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="实验四：CTF实践, 7562ajj的博客">
+    <meta name="description" content="实验准备：
+攻击机：kali：192.168.217.139
+靶机WebDeveloper：192.168.217.148
+1、发现目标 (netdiscover)，找到WebDeveloper的IP地址。截图。
+2、:利用NMAP扫描目标">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 7562ajj的博客</title>
+    <title>实验四：CTF实践 | 7562ajj的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">实验四：CTF实践</h1>
                 </div>
             </div>
         </div>
@@ -361,9 +365,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TeXt/">
+                                <span class="chip bg-color">TeXt</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -396,19 +404,59 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <p>实验准备：</p>
+<p>攻击机：kali：192.168.217.139</p>
+<p>靶机WebDeveloper：192.168.217.148</p>
+<h2 id="1、发现目标-netdiscover-，找到WebDeveloper的IP地址。截图。"><a href="#1、发现目标-netdiscover-，找到WebDeveloper的IP地址。截图。" class="headerlink" title="1、发现目标 (netdiscover)，找到WebDeveloper的IP地址。截图。"></a>1、发现目标 (netdiscover)，找到WebDeveloper的IP地址。截图。</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114192133695.png" alt="image-20221114192133695"></p>
+<h2 id="2、-利用NMAP扫描目标主机，发现目标主机端口开放、服务情况，截图并说明目标提供的服务有哪些？（利用第一次实验知识点）"><a href="#2、-利用NMAP扫描目标主机，发现目标主机端口开放、服务情况，截图并说明目标提供的服务有哪些？（利用第一次实验知识点）" class="headerlink" title="2、:利用NMAP扫描目标主机，发现目标主机端口开放、服务情况，截图并说明目标提供的服务有哪些？（利用第一次实验知识点）"></a>2、:利用NMAP扫描目标主机，发现目标主机端口开放、服务情况，截图并说明目标提供的服务有哪些？（利用第一次实验知识点）</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114192305689.png" alt="image-20221114192305689"></p>
+<p>开放22端口ssh服务，可以进行远程连接操作。开放80端口http服务，可以进行浏览器访问</p>
+<h2 id="3、若目标主机提供了HTTP服务，尝试利用浏览器访问目标网站。截图。是否有可用信息？"><a href="#3、若目标主机提供了HTTP服务，尝试利用浏览器访问目标网站。截图。是否有可用信息？" class="headerlink" title="3、若目标主机提供了HTTP服务，尝试利用浏览器访问目标网站。截图。是否有可用信息？"></a>3、若目标主机提供了HTTP服务，尝试利用浏览器访问目标网站。截图。是否有可用信息？</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114192807589.png" alt="image-20221114192807589"></p>
+<p>浏览器访问之后，通过火狐插件wappalyzer可以知道该网站的指纹信息，可以看到该网站使用的是一个使用较多的cms：wordpress，同时在页面下面存在多个接口，其中login为网站后台登录页面，可能会被利用。</p>
+<h2 id="4、利用whatweb探测目标网站使用的CMS模板。截图。分析使用的CMS是什么？"><a href="#4、利用whatweb探测目标网站使用的CMS模板。截图。分析使用的CMS是什么？" class="headerlink" title="4、利用whatweb探测目标网站使用的CMS模板。截图。分析使用的CMS是什么？"></a>4、利用whatweb探测目标网站使用的CMS模板。截图。分析使用的CMS是什么？</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114193921477.png" alt="image-20221114193921477"></p>
+<p>通过whatweb这个开源网站指纹识别工具也可以得知该网站cms是wordpress</p>
+<h2 id="5、网络搜索wpscan，简要说明其功能。"><a href="#5、网络搜索wpscan，简要说明其功能。" class="headerlink" title="5、网络搜索wpscan，简要说明其功能。"></a>5、网络搜索wpscan，简要说明其功能。</h2><p>wpscan是一款针对于wordpress网站的漏洞扫描工具，除此之外，它还能够扫描类似robots.txt这样的敏感文件以及一些其他功能，例如：枚举网站用户，将用户名和密码进行爆破匹配等。</p>
+<h2 id="6、使用-Dirb-爆破网站目录。（Dirb-是一个专门用于爆破目录的工具，在-Kali-中默认已经安装，类似工具还有国外的patator，dirsearch，DirBuster，-国内的御剑）截图。找到一个似乎和网络流量有关的目录（路径）。"><a href="#6、使用-Dirb-爆破网站目录。（Dirb-是一个专门用于爆破目录的工具，在-Kali-中默认已经安装，类似工具还有国外的patator，dirsearch，DirBuster，-国内的御剑）截图。找到一个似乎和网络流量有关的目录（路径）。" class="headerlink" title="6、使用 Dirb 爆破网站目录。（Dirb 是一个专门用于爆破目录的工具，在 Kali 中默认已经安装，类似工具还有国外的patator，dirsearch，DirBuster， 国内的御剑）截图。找到一个似乎和网络流量有关的目录（路径）。"></a>6、使用 Dirb 爆破网站目录。（Dirb 是一个专门用于爆破目录的工具，在 Kali 中默认已经安装，类似工具还有国外的patator，dirsearch，DirBuster， 国内的御剑）截图。找到一个似乎和网络流量有关的目录（路径）。</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114200154496.png" alt="image-20221114200154496"></p>
+<p>网络流量相关的有两个ipdata和network，经过实际访问，只有ipdata路径存在流量文件。</p>
+<h2 id="5、浏览器访问该目录（路径），发现一个cap文件。截图。"><a href="#5、浏览器访问该目录（路径），发现一个cap文件。截图。" class="headerlink" title="5、浏览器访问该目录（路径），发现一个cap文件。截图。"></a>5、浏览器访问该目录（路径），发现一个cap文件。截图。</h2><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114204114838.png" alt="image-20221114204114838"></p>
+<h2 id="6、利用Wireshark分析该数据包，分析TCP数据流。找到什么有用的信息？截图。"><a href="#6、利用Wireshark分析该数据包，分析TCP数据流。找到什么有用的信息？截图。" class="headerlink" title="6、利用Wireshark分析该数据包，分析TCP数据流。找到什么有用的信息？截图。"></a>6、利用Wireshark分析该数据包，分析TCP数据流。找到什么有用的信息？截图。</h2><p>wireshark打开数据包，追踪tcp流</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114211834865.png" alt="image-20221114211834865"></p>
+<p>在流8的login.php页面的数据中发现了网站后台登录的账号密码，并将密码进行url解码得到：</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114211910354.png" alt="image-20221114211910354"></p>
+<p>登录的账号密码为webdeveloper &#x2F; Te5eQg&amp;4sBS!Yr$)wf%(DcAd</p>
+<h2 id="7、利用上一步得到的信息进入网站后台。截图。"><a href="#7、利用上一步得到的信息进入网站后台。截图。" class="headerlink" title="7、利用上一步得到的信息进入网站后台。截图。"></a>7、利用上一步得到的信息进入网站后台。截图。</h2><p>（网站管理员账号与操作系统账号是不同概念）</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114212031606.png" alt="image-20221114212031606"></p>
+<h2 id="8、利用该CMS存在的（插件Plugin）漏洞。"><a href="#8、利用该CMS存在的（插件Plugin）漏洞。" class="headerlink" title="8、利用该CMS存在的（插件Plugin）漏洞。"></a>8、利用该CMS存在的（插件Plugin）漏洞。</h2><h2 id="9、利用该插件漏洞提权。"><a href="#9、利用该插件漏洞提权。" class="headerlink" title="9、利用该插件漏洞提权。"></a>9、利用该插件漏洞提权。</h2><p>要求我们使用插件漏洞功能点进行反弹shell，网上查找该cms存在漏洞的插件为reflex gallery，file manager。先试试第一个插件：在后台的plugins-&gt;add new 中搜索该插件，并下载安装<img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114213748671.png" alt="image-20221114213748671"></p>
+<p>安装完成之后点击activate启动它</p>
+<p>开启msf进行反弹shell操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search reflex gallery   //查找漏洞利用模块</span><br><span class="line">use 0                   //使用该模块</span><br><span class="line">options					//查看利用还需要进行设置的部分</span><br><span class="line">set rhosts 192.168.217.148  //设置攻击目标，即靶机ip</span><br><span class="line">run						//启动</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>options查看后，发现只需要设置一个rhosts（攻击目标）即可。</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114214442166.png" alt="image-20221114214442166"></p>
+<p>建立会话失败了。。。。</p>
+<p>那就改用file manager 插件，同样的操作安装插件，装好之后直接查找wp-config.php文件，下载并查看</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114222502675.png" alt="image-20221114222502675"></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114222553116.png" alt="image-20221114222553116"></p>
+<h2 id="10、SSH登录服务器"><a href="#10、SSH登录服务器" class="headerlink" title="10、SSH登录服务器"></a>10、SSH登录服务器</h2><p>尝试利用上一步获得的访问数据库的用户名和密码连接远程服务器。截图。</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114222856989.png" alt="image-20221114222856989"></p>
+<h3 id="1、尝试查看-x2F-root-x2F-flag-tx"><a href="#1、尝试查看-x2F-root-x2F-flag-tx" class="headerlink" title="1、尝试查看&#x2F;root&#x2F;flag.tx"></a>1、尝试查看&#x2F;root&#x2F;flag.tx</h3><p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114222922266.png" alt="image-20221114222922266"></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114223447002.png" alt="image-20221114223447002"></p>
+<p>提示权限不够，那就需要进行提权了。</p>
+<p>sudo -l 查看可以执行root权限的命令</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114223225042.png" alt="image-20221114223225042"></p>
+<p>发现可以root命令执行tcpdump命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">touch /tmp/shell     //创建一个文件</span><br><span class="line"></span><br><span class="line">echo &#x27;cat /root/flag.txt&#x27; &gt; /tmp/shell  //写入要执行的命令</span><br><span class="line"></span><br><span class="line">chmod +x /tmp/shell			//为该文件添加可执行权限</span><br><span class="line"></span><br><span class="line">sudo tcpdump -i eth0 -w /dev/null -w 1 -G 1 -z /tmp/shell -Z root  //利用tcpdump执行命令</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221114224058468.png" alt="image-20221114224058468"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tcpdump命令详解：</span><br><span class="line"></span><br><span class="line">-i eth0 从指定网卡捕获数据包</span><br><span class="line"></span><br><span class="line">-w /dev/null 将捕获到的数据包输出到空设备（不输出数据包结果）</span><br><span class="line"></span><br><span class="line">-z [command] 运行指定的命令</span><br><span class="line"></span><br><span class="line">-Z [user] 指定用户执行命令</span><br><span class="line"></span><br><span class="line">-G [rotate_seconds] 每rotate_seconds秒一次的频率执行-w指定的转储</span><br><span class="line"></span><br><span class="line">-W [num] 指定抓包数量</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="实验小结"><a href="#实验小结" class="headerlink" title="实验小结"></a>实验小结</h2><p>本次实验通过渗透webdeveloper靶机并提权获取flag。</p>
+<p>思路：</p>
+<p>首先必须得知道靶机的ip地址，通过nmap或者arp-scan都可以获取到，得到ip之后扫描该主机开放的端口，只有知道开放了什么端口，得知运行了什么服务之后，才有思路做下去。通过扫描得知开放了80端口-http服务和22端口-ssh服务。既然开启了80端口那么肯定就是通过访问网站，查找有没有可以利用的功能点。同时看到开放22端口，猜测应该是通过访问网站拿到ssh远程登录的账号密码。访问浏览器后，得知网站cms为wordpress，大多数都存在漏洞，但是不同版本的wordpress存在漏洞不一样。网页中发现存在网站后台登录页面，那么我们现在首要目标就是获取到网站后台登录的账号密码，wordpress应该不存在弱口令（目前没遇到过）。可以通过wordpress专用的漏洞扫描器wpscan进行扫描枚举网站的用户名（能不用就不用，wpscan初次使用过于复杂），先使用目录扫描工具进行扫描网站存在的目录，扫描后看到有个和网络流量相关的目录。顺利拿到网站登录的流量包，wireshark打开发现网站后台登录密码。登入后台之后寻找利用功能点，多个地方存在利用点。使用最简单的方法：通过该版本存在的file manager插件漏洞，安装后可直接浏览主机的低权限文件。查看配置文件（类似config.php字样），拿到数据库登录的账号密码，即ssh远程登录的账号密码。ssh远程登录之后发现需要提权，那么首先先查看能执行root权限的命令，找到之后再使用对应的方法进行提权拿到flag。</p>
+<span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<hr>
+<p>If you like TeXt, don’t forget to give me a star. :star2:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/7562ajj/7562ajj.github.io"><img src="https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?label=Stars&style=social" alt="Star This Project"></a></p>
 
                 
             </div>
@@ -435,7 +483,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/11/24/hello-world/">http://example.com/2022/11/24/hello-world/</a>
+                    <a href="http://example.com/2022/11/24/2022-11-14-shi-yan-si/">http://example.com/2022/11/24/2022-11-14-shi-yan-si/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -472,7 +520,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/TeXt/">
+                                    <span class="chip bg-color">TeXt</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -553,21 +605,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2022/11/24/2022-10-06-ctfshow-fan-xu-lie-hua/">
+                <a href="/2022/11/24/2018-06-01-header-image/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="ctfshow-反序列化">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Post with Header Image">
                         
-                        <span class="card-title">ctfshow-反序列化</span>
+                        <span class="card-title">Post with Header Image</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ctfshow-反序列化web254根据源代码，直接进行get传参：?username&#x3D;xxxxxx&amp;password&#x3D;xxxxxx
-web255源代码
-12345678910111213141516171819
+                            A Post with Header Image, See Page layout for more examples.
                         
                     </div>
                     <div class="publish-info">
@@ -597,22 +647,26 @@ web255源代码
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/24/hello-world/">
+                <a href="/2022/11/24/2022-11-7-shi-yan-san/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="实验三：XSS和SQL注入">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">实验三：XSS和SQL注入</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            XSS部分：利用Beef劫持被攻击者客户端浏览器搭建GuestBook网站把网站文件夹（GuestBook）复制到windows server中，通过windows server的IIS配置该网站。
+
+
+
+1、利用AWVS扫描留言簿网站（安
                         
                     </div>
                     <div class="publish-info">
@@ -627,7 +681,14 @@ web255源代码
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TeXt/">
+                        <span class="chip bg-color">TeXt</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

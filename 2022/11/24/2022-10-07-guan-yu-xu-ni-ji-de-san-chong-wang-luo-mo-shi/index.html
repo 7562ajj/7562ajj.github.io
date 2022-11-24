@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Tags, 7562ajj的博客">
-    <meta name="description" content="7562ajj的博客">
+    <meta name="keywords" content="关于kali用不同的网络模式下与物理机的关系, 7562ajj的博客">
+    <meta name="description" content="关于kali用不同的网络模式下与物理机的关系（是否在同一个子网）前期准备1.下载VMware和kali虚拟机。
+虚拟机中的三种不同的网络模式一.桥接模式 桥接模式下，虚拟机和物理机处于同一网段，可以和外部处于同一网段的计算机进行直接通信。如">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Tags | 7562ajj的博客</title>
+    <title>关于kali用不同的网络模式下与物理机的关系 | 7562ajj的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -330,107 +331,455 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    subtitle
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "没有永远的失败,只有不努力的自己",
-                            
-                                "There is no permanent failure, only the self who does not work hard",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">关于kali用不同的网络模式下与物理机的关系</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TeXt/">
+                                <span class="chip bg-color">TeXt</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2022-11-24
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="关于kali用不同的网络模式下与物理机的关系（是否在同一个子网）"><a href="#关于kali用不同的网络模式下与物理机的关系（是否在同一个子网）" class="headerlink" title="关于kali用不同的网络模式下与物理机的关系（是否在同一个子网）"></a>关于kali用不同的网络模式下与物理机的关系（是否在同一个子网）</h2><h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p>1.下载VMware和kali虚拟机。</p>
+<h3 id="虚拟机中的三种不同的网络模式"><a href="#虚拟机中的三种不同的网络模式" class="headerlink" title="虚拟机中的三种不同的网络模式"></a>虚拟机中的三种不同的网络模式</h3><h4 id="一-桥接模式"><a href="#一-桥接模式" class="headerlink" title="一.桥接模式"></a>一.桥接模式</h4><p> 桥接模式下，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%99%9A%E6%8B%9F%E6%9C%BA&spm=1001.2101.3001.7020">虚拟机</a>和物理机处于同一网段，可以和外部处于同一网段的计算机进行直接通信。如图所示，</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.jpg" alt="img"></p>
+<h4 id="二-NAT模式"><a href="#二-NAT模式" class="headerlink" title="二.NAT模式"></a>二.NAT模式</h4><p> NAT模式下，虚拟机IP地址和物理机真实网卡的IP地址不在同一网段，但是和物理机的虚拟网卡处于同一网段。虚拟机可以通过IP地址转换和外部通信，但是外部无法向虚拟机通信，有点类似私网地址可以通过路由器的公网地址和互联网通信，但互联网无法访问私网地址。</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/NAT%E6%A8%A1%E5%BC%8F.jpg" alt="img"></p>
+<h4 id="三-仅主机模式"><a href="#三-仅主机模式" class="headerlink" title="三.仅主机模式"></a>三.仅主机模式</h4><p>仅主机模式下，虚拟机是一个独立系统，不与外部发生通信。</p>
+<h3 id="本地模拟"><a href="#本地模拟" class="headerlink" title="本地模拟"></a>本地模拟</h3><p>介绍完之后我们在本地实操看一下具体的情况（分别以桥接、NAT模式设置kali虚拟机）</p>
+<p>先把kali的设置为NAT模式</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221007202232465.png" alt="image-20221007202232465"></p>
+<p>配置完成之后进入到kali系统，进入终端使用ifconfig命令查看IP地址</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221007201750846.png" alt="image-20221007201750846"></p>
+<p>同时 在本地也查看一下ip地址</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221007201937533.png" alt="image-20221007201937533"></p>
+<p>可以发现kali虚拟机的IP地址和物理机真实网卡（WLAN）的IP地址不在同一网段，但是和物理机的虚拟网卡（vmnet8）处于同一网段。</p>
+<p>接着我们把kali设置为桥接模式看看此时和物理机是个什么关系，需要设置桥接模式为桥接到物理机的真实网卡上。以下为配置过程</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221008003015512.png" alt="image-20221008003015512"></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221008002947858.png" alt="image-20221008002947858"></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221008002913697.png" alt="image-20221008002913697"></p>
+<p>配置好之后打开kali查看ip就可以了</p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221008002540739.png" alt="image-20221008002540739"></p>
+<p><img src="https://raw.githubusercontent.com/7562ajj/7562ajj.github.io/master/assets/images/image-20221008003356626.png" alt="image-20221008003356626"></p>
+<p>可以看到，在桥接模式下，kali的ip和物理机的真是ip是在同一网段下的。</p>
+<span id="more"></span>
+
+<hr>
+<p>If you like TeXt, don’t forget to give me a star. :star2:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/7562ajj/7562ajj.github.io"><img src="https://img.shields.io/github/stars/kitian616/jekyll-TeXt-theme.svg?label=Stars&style=social" alt="Star This Project"></a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Zeng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/11/24/2022-10-07-guan-yu-xu-ni-ji-de-san-chong-wang-luo-mo-shi/">http://example.com/2022/11/24/2022-10-07-guan-yu-xu-ni-ji-de-san-chong-wang-luo-mo-shi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Zeng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/TeXt/">
+                                    <span class="chip bg-color">TeXt</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
-
+            
+        </div>
     </div>
-</div>
-
-<main class="content">
 
     
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;Post Tags
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/TeXt/" title="TeXt: 9">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="TeXt" style="background-color: #F9EBEA;">TeXt
-                        <span class="tag-length">9</span>
-                    </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2022/11/24/2022-10-28-shi-yan-1-wang-luo-sao-miao-yu-wang-luo-zhen-cha/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="实验一：网络扫描与网络侦擦">
+                        
+                        <span class="card-title">实验一：网络扫描与网络侦擦</span>
+                    </div>
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1.搜索麻省理工学院网站中文件名包含“network security”的pdf文档百度搜索得到麻省理工学院官网网址：www.mit.edu
+
+2.图片中的女孩在哪旅行
+根据图片中的信息38 letrentehuit cafe brasse
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Zeng
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TeXt/">
+                        <span class="chip bg-color">TeXt</span>
+                    </a>
+                    
+                </div>
                 
             </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/11/24/2022-10-06-ke-cheng-nei-rong-fu-xi-wireshark-lan-jie-shou-ji-shu-ju-bao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="wireshark拦截手机数据包">
+                        
+                        <span class="card-title">wireshark拦截手机数据包</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            课程内容复现-wireshark拦截手机数据包课程目的拦截手机向电脑发送的图片数据包，并恢复该图片。
+准备工作1.让手机和电脑连接同一个wifi，使电脑和手机在同一个局域网下。
+2.准备一个wireshark工具。
+复现过程打开wiresh
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Zeng
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TeXt/">
+                        <span class="chip bg-color">TeXt</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
-    
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
+<!-- TOC 悬浮按钮. -->
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
 </div>
 
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
 
-    $('#tag-wordcloud').jQCloud([{"text":"TeXt","weight":9,"link":"/tags/TeXt/"}], {
-        autoResize: true
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
     });
 </script>
 
     
 
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
