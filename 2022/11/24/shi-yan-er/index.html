@@ -413,9 +413,9 @@
             <div id="articleContent">
                 <h1 id="网络嗅探与身份认证"><a href="#网络嗅探与身份认证" class="headerlink" title="网络嗅探与身份认证"></a>网络嗅探与身份认证</h1><h2 id="1-A主机上外网，B运行sinffer-Wireshark-选定只抓源为A的数据"><a href="#1-A主机上外网，B运行sinffer-Wireshark-选定只抓源为A的数据" class="headerlink" title="1.A主机上外网，B运行sinffer(Wireshark)选定只抓源为A的数据)"></a>1.A主机上外网，B运行sinffer(Wireshark)选定只抓源为A的数据)</h2><h3 id="1-1-写出以上过滤语句"><a href="#1-1-写出以上过滤语句" class="headerlink" title="1.1 写出以上过滤语句"></a>1.1 写出以上过滤语句</h3><p>ip.src&#x3D;&#x3D;A的ip</p>
 <h3 id="1-2-在互联网上找到任意一个以明文方式传递用户帐号、密码的网站，B是否能看到A和外网（该网站）的通信（A刚输入的帐户和口令）？为什么？"><a href="#1-2-在互联网上找到任意一个以明文方式传递用户帐号、密码的网站，B是否能看到A和外网（该网站）的通信（A刚输入的帐户和口令）？为什么？" class="headerlink" title="1.2 在互联网上找到任意一个以明文方式传递用户帐号、密码的网站，B是否能看到A和外网（该网站）的通信（A刚输入的帐户和口令）？为什么？"></a>1.2 在互联网上找到任意一个以明文方式传递用户帐号、密码的网站，B是否能看到A和外网（该网站）的通信（A刚输入的帐户和口令）？为什么？</h3><p>本题用了两个linux虚拟机做实验，两者处于同一网段下，用A访问桂林生活网并输入账号密码进行登录</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-1.png"></p>
 <p>B打开wireshark选定只抓取源A的数据</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-2.png"></p>
 <p>B是看不到A与外网的通信的，因为A访问外网的数据流量直接通过网关发送，A与外网的通信数据不会经过B。</p>
 <h2 id="2-ARP欺骗"><a href="#2-ARP欺骗" class="headerlink" title="2.ARP欺骗"></a>2.ARP欺骗</h2><p>攻击机：kali</p>
 <p>靶机：Windows xp</p>
@@ -426,56 +426,56 @@
 <p>查自己局域网ip：ifconfig（192.168.217.139）</p>
 <p>扫描同网段下存活的主机（确定目标主机）：nmap -sP 192.168.217.2&#x2F;24，得到目标ip为192.168.217.145</p>
 <p>使用命令arpspoof -i eth0 -t 192.168.217.145 192.168.217.2 断开目标主机的通信</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/3.png"></p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/4.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-3.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-4.png"></p>
 <p>此时发现靶机已无法上网。靶机的网关地址也变成了攻击机的mac</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/5.png"></p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/6.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-5.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-6.png"></p>
 <p>接着尝试获取目标主机上网时的登录账号密码。这样那我们就必须得让目标主机能够上网。</p>
 <p>开启流量转发，使得被欺骗后的目标仍然可以上网。命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</span><br></pre></td></tr></table></figure>
 
 <p>再输入命令cat &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward检查ip是否转发成功，值为1即成功，0则失败。</p>
 <p>接着编辑&#x2F;etc&#x2F;ettercap&#x2F;etter.conf 这个文件，把Linux下面的1，2，4，5条的注释去掉，我这是已经把注释去除完了</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/7.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-7.png"></p>
 <p>然后再使用命令：sslstrip -a -f -k 开启转发</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/8.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-8.png"></p>
 <p>接着再打开另一个终端，重复一次阻断通信的操作。然后就可以利用ettercap来进行密码嗅探了，使用命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ettercap -Tq -i eth0</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/9.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-9.png"></p>
 <p>这时候 当目标打开一个网站时，它的ip发送端口 登录账号以及密码 访问的网站链接都会显示出来。下图是我在windows xp上访问桂林生活网并随意输入用户名密码进行登录，成功欺骗获取到登录的账号密码。</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/10.png"></p>
-<h2 id="3-FTP数据还原部分：利用WireShark打开实验实验数据data-pcapng。"><a href="#3-FTP数据还原部分：利用WireShark打开实验实验数据data-pcapng。" class="headerlink" title="3.FTP数据还原部分：利用WireShark打开实验实验数据data.pcapng。"></a>3.FTP数据还原部分：利用WireShark打开实验实验数据data.pcapng。</h2><h3 id="3-1-FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？"><a href="#3-1-FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？" class="headerlink" title="3.1 FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？"></a>3.1 FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？</h3><p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/11.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-10.png"></p>
+<h2 id="3-FTP数据还原部分：利用WireShark打开实验实验数据data-pcapng。"><a href="#3-FTP数据还原部分：利用WireShark打开实验实验数据data-pcapng。" class="headerlink" title="3.FTP数据还原部分：利用WireShark打开实验实验数据data.pcapng。"></a>3.FTP数据还原部分：利用WireShark打开实验实验数据data.pcapng。</h2><h3 id="3-1-FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？"><a href="#3-1-FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？" class="headerlink" title="3.1 FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？"></a>3.1 FTP服务器的IP地址是多少？你是如何发现其为FTP服务器的？</h3><p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-11.png"></p>
 <p>可见ftp服务器的ip地址为192.168.182.1 ,ftp服务常常开在21端口，所以我们只需要过滤21端口的数据包进行查看即可。.1的ip地址通常为网关ip，但并不绝对。</p>
-<h3 id="3-2客户端登录FTP服务器的账号和密码分别是什么"><a href="#3-2客户端登录FTP服务器的账号和密码分别是什么" class="headerlink" title="3.2客户端登录FTP服务器的账号和密码分别是什么?"></a>3.2客户端登录FTP服务器的账号和密码分别是什么?</h3><p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/12.png"></p>
+<h3 id="3-2客户端登录FTP服务器的账号和密码分别是什么"><a href="#3-2客户端登录FTP服务器的账号和密码分别是什么" class="headerlink" title="3.2客户端登录FTP服务器的账号和密码分别是什么?"></a>3.2客户端登录FTP服务器的账号和密码分别是什么?</h3><p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-12.png"></p>
 <p>通过过滤ftp的数据包可以发现，客户端进行了两次登录账号密码分别为</p>
-<p>anonymous&#x2F;<a href="mailto:&#109;&#111;&#x7a;&#x69;&#108;&#x6c;&#97;&#64;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#109;&#111;&#x7a;&#x69;&#108;&#x6c;&#97;&#64;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;</a>  ：登录失败，密码错误</p>
+<p>anonymous&#x2F;<a href="mailto:&#109;&#x6f;&#122;&#x69;&#108;&#108;&#97;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;">&#109;&#x6f;&#122;&#x69;&#108;&#108;&#97;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;</a>  ：登录失败，密码错误</p>
 <p>student&#x2F;sN46i5y  ：登录成功。</p>
-<h3 id="3-3-客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）"><a href="#3-3-客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）" class="headerlink" title="3.3 客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）"></a>3.3 客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）</h3><p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/13.png"></p>
+<h3 id="3-3-客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）"><a href="#3-3-客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）" class="headerlink" title="3.3 客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）"></a>3.3 客户端从FTP下载或查看了2个文件，一个为ZIP文件，一个为TXT文件，文件名分别是什么？（提示：文件名有可能是中文。）</h3><p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-13.png"></p>
 <p>继续进行查找，显而易见两个文件为1.zip&#x2F;复习题.txt。</p>
 <h3 id="3-4-还原ZIP文件并打开（ZIP有解压密码，试图破解，提示：密码全为数字，并为6位）。截图破解过程。"><a href="#3-4-还原ZIP文件并打开（ZIP有解压密码，试图破解，提示：密码全为数字，并为6位）。截图破解过程。" class="headerlink" title="3.4 还原ZIP文件并打开（ZIP有解压密码，试图破解，提示：密码全为数字，并为6位）。截图破解过程。"></a>3.4 还原ZIP文件并打开（ZIP有解压密码，试图破解，提示：密码全为数字，并为6位）。截图破解过程。</h3><p>追踪流，找到zip数据包，并将其导出。</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/14.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-14.png"></p>
 <p>导出后打开</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/15.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-15.png"></p>
 <p>发现需要密码，根据题目提示进行爆破，密码为6为数字。工具有很多个，比如ziperello，ARCHPR，以及kali中预装好的fcrackzip。</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/16.png"></p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/17.png"></p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/18.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-16.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-17.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-18.png"></p>
 <h3 id="3-5-TXT文件的内容是什么？"><a href="#3-5-TXT文件的内容是什么？" class="headerlink" title="3.5 TXT文件的内容是什么？"></a>3.5 TXT文件的内容是什么？</h3><p>继续刚刚的追踪流数据，看到流4即为txt文件的内容</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/19.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-19.png"></p>
 <h2 id="网站破解部分："><a href="#网站破解部分：" class="headerlink" title="网站破解部分："></a>网站破解部分：</h2><p>以*****为目标网站，构造字典（wordlist），其中包含你的正确密码，利用burpsuite进行字典攻击，实施字典攻击，你是如何判断某个密码为破解得到的正确密码，截图。</p>
 <p>这种爆破破解的目标是不需要登录验证的网站，我这里以社团搭建的靶场作为目标网站，</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/20.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-20.png"></p>
 <p>要求爆破密码，所以先输入好正确的用户名，再随便输入一个密码进行抓包，然后发送到Intrude模块，</p>
 <p>清空所有变量，再单独添加password为变量</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/21.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-21.png"></p>
 <p>在payload这里导入我们提前生成的字典，其中包含正确的登录密码，然后开始爆破，通过响应内容的长度不同来确定正确的密码，即zxc123456，有时候也可以通过观看状态的不同来确定。</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/22.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-22.png"></p>
 <h2 id="4、MD5破解"><a href="#4、MD5破解" class="headerlink" title="4、MD5破解"></a>4、MD5破解</h2><p>  SqlMap得到某数据库用户表信息，用户口令的MD5值为7282C5050CFE7DF5E09A33CA456B94AE</p>
 <p>那么，口令的明文是什么？（提示：MD5值破解）</p>
 <p>网上找在线工具进行md5解密即可</p>
-<p><img src="/./%E5%AE%9E%E9%AA%8C%E4%BA%8C/23.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/2-23.png"></p>
 <h2 id="5、John-the-Ripper的作用是什么？"><a href="#5、John-the-Ripper的作用是什么？" class="headerlink" title="5、John the Ripper的作用是什么？"></a>5、John the Ripper的作用是什么？</h2><p><code>John the Ripper</code> 是一款大受欢迎的、免费的开源软件。也是一个基于字典的快速破解密码的工具，是一款用于在已知密文的情况下尝试破解出明文的破解密码软件，支持目前大多数的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95&spm=1001.2101.3001.7020">加密算法</a>，如 <code>DES</code> 、 <code>MD4</code> 、 <code>MD5</code> 等。 <code>John the Ripper</code> 支持字典破解方式和暴力破解方式。它支持多种不同类型的系统架构，包括 <code>Unix</code> 、 <code>Linux</code> 、 <code>Windows</code> 、 <code>DOS</code> 模式、 <code>BeOS</code> 和 <code>OpenVMS</code> ，主要目的是破解不够牢固的 <code>Unix/Linux</code> 系统密码。</p>
 <p>思考问题：</p>
 <p><strong>1、 谈谈如何防止ARP攻击。</strong></p>

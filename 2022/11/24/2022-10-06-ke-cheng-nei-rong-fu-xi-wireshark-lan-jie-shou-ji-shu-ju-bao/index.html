@@ -417,28 +417,28 @@
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1.让手机和电脑连接同一个wifi，使电脑和手机在同一个局域网下。</p>
 <p>2.准备一个wireshark工具。</p>
 <h2 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h2><p>打开wireshark，并捕获WLAN网络的流量。</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/1.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-1.png"></p>
 <p>我们是要对手机的数据包进行捕获，所以对数据包进行过滤。</p>
 <p>首先先查看手机的ip地址，接着使用ip.src&#x3D;&#x3D;ip命令进行过滤</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/2.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-2.png"></p>
 <p>接着我们用手机向电脑发送一张图片。</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/3.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-3.png"></p>
 <p>发送完之后再看到wireshark页面，可以发现成功拦截到了数据</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/4.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-4.png"></p>
 <p>在这大量的数据包中，随便翻翻看了下，绝大多数都是tcp的数据包，存在几个http的包，而且发现jpg图片数据包</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/5.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-5.png"></p>
 <p>接着我们追踪http流。步骤：分析–&gt;追踪流–&gt;http流。</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/6.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-6.png"></p>
 <p>很明显，这个就是我们想要的数据包，接着我们将其导出到本地</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/7.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-7.png"></p>
 <p>将其保存到桌面，并命名为shouji.jpg。直接将其打开会发现该文件已损坏，</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/8.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-8.png"></p>
 <p>我们用winhex或者010打开看看是什么情况。</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/9.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-9.png"></p>
 <p>熟悉各种文件文件头的一眼就可以发现当前该文件的文件头并不是jpg文件的，jpg文件头为FFD8FF。不了解的可自行百度。因为文件头错误导致的文件损坏，所以我们只需将FFD8FF之前的字节删除掉即可。</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/10.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-10.png"></p>
 <p>删除完成之后点击保存，返回打开我们刚刚导出的图片</p>
-<p><img src="/./2022-10-06-%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E5%A4%8D%E4%B9%A0-wireshark%E6%8B%A6%E6%88%AA%E6%89%8B%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%8C%85/11.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/7562ajj/blog-images/img/-11.png"></p>
 <p>可以看到已成功恢复。任务完成！！</p>
 <span id="more"></span>
 
